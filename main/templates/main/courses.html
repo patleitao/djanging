@@ -1,0 +1,110 @@
+
+{% extends "main/base.html" %}
+
+{% block styles %}
+{{ block.super }}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/css/courses-style.css' %}">
+{% endblock %}
+
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+<!-- upcoming courses -->
+<div class="courses-body">
+<div class="accordion-wrap">
+<div>
+    <h2>UPCOMING COURSES</h2>
+</div>
+{% if upcoming_courses %}
+    {% for course in upcoming_courses %}
+        <a class="accordion" data-toggle="collapse" href="#collapse{{ forloop.counter0 }}" role="button" aria-expanded="false" >
+        <div class="teaser">
+            <div class="time">
+                <h5>{{course.start_date}}</h5>
+                <h5>{{course.end_date}}</h5>
+            </div>
+        
+            <div class="title">
+                <h3>{{course.name}}</h3>
+                {% if course.sub_heading %}
+                    <h6 class="theme">{{course.sub_heading}}</h6>
+                {% endif %}
+            </div>
+        </div>
+            
+            <div class="collapse" id="collapse{{ forloop.counter0 }}">
+      <div class="content">
+        <h5>{{course.description}}</h5>
+        <p></p>
+        <p><strong class="medium">INSTRUCTOR: </strong>{{course.instructor}}</p>
+        <p><strong class="medium">PRICE: </strong>{{course.price}}</p>
+        <p><strong class="medium">REBATE PER SESSION: </strong>{{course.rebate_per_session}}</p>
+        <button type="button" class="btn btn-outline-primary" id="course-btn">Sign-Up</button>
+        <button type="button" class="btn btn-outline-primary" id="course-btn">Course Details</button>
+      </div>
+    </div>
+            
+            <div class="accordion-toggle">
+                <span class="one"></span>
+                <span class="two"></span>
+            </div>
+        </a>
+    {% endfor %}
+{% else %}
+    <p>There are no ongoing or upcoming courses at the moment.</p>
+{% endif %}
+</div>
+<!-- Ongoing Courses -->
+<div class="accordion-wrap">
+<div>
+    <h2>ONGOING COURSES</h2>
+</div>
+{% if current_courses %}
+    {% for course in current_courses %}
+        <a class="accordion" data-toggle="collapse" href="#collapse{{ forloop.counter0 }}" role="button" aria-expanded="false" >
+        <div class="teaser">
+            <div class="time">
+                <h5>{{course.start_date}}</h5>
+                <h5>{{course.end_date}}</h5>
+            </div>
+        
+            <div class="title">
+                <h3>{{course.name}}</h3>
+                {% if course.sub_heading %}
+                    <h6 class="theme">{{course.sub_heading}}</h6>
+                {% endif %}
+            </div>
+        </div>
+            
+            <div class="collapse" id="collapse{{ forloop.counter0 }}">
+      <div class="content">
+        <h5>{{course.description}}</h5>
+        <p></p>
+        <p><strong class="bold">INSTRUCTOR: </strong>{{course.instructor}}</p>
+        <p><strong class="bold">PRICE: </strong>{{course.price}}</p>
+        <p><strong class="bold">REBATE PER SESSION: </strong>{{course.rebate_per_session}}</p>
+        <button type="button" class="btn btn-outline-primary" id="course-btn">Sign-Up</button>
+        <button type="button" class="btn btn-outline-primary" id="course-btn">Course Details</button>
+      </div>
+    </div>
+            
+            <div class="accordion-toggle">
+                <span class="one"></span>
+                <span class="two"></span>
+            </div>
+        </a>
+    {% endfor %}
+{% else %}
+    <h6>There are no ongoing courses at the moment.</h6>
+{% endif %}
+</div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
+
+

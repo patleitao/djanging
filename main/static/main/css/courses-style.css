@@ -1,0 +1,182 @@
+:root {
+    --light-desert: #F5EFE6;
+    --desert: #E8DFCA;
+    --light-blue: #AEBDCA;
+    --ocean-blue: #7895B2;
+    --deep-ocean-blue: #698BAC;
+    --cactus-green: #829460;
+    --white: #FFFFFF;
+    --black: #000000;
+    --bg: #000000;
+}
+
+@font-face {
+  font-family: 'Cooper-Hewitt-Heavy';
+  src: local('Abc'),
+       url('../fonts/CooperHewitt/CooperHewitt-Heavy.otf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Cooper-Hewitt-Bold';
+  src: local('Abc'),
+       url('../fonts/CooperHewitt/CooperHewitt-Bold.otf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Cooper-Hewitt-Medium';
+  src: local('Abc'),
+       url('../fonts/CooperHewitt/CooperHewitt-Medium.otf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Cooper-Hewitt-Book';
+  src: local('Abc'),
+       url('../fonts/CooperHewitt/CooperHewitt-Book.otf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Cooper-Hewitt-Thin';
+  src: local('Abc'),
+       url('../fonts/CooperHewitt/CooperHewitt-Thin.otf') format("truetype");
+}
+
+.courses-body {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     height: 100vh;
+     width: 100vw;
+     padding: 10vh;
+     background-color: var(--desert);
+     color: var(--black);
+}
+
+strong .medium {
+    font-family: Cooper-Hewitt-Medium;
+}
+
+ p {
+    font-family: Cooper-Hewitt-Book;
+    font-size: 13px;
+    line-height: 5px;
+ }
+
+  h2 {
+     font-family: Cooper-Hewitt-Bold;
+     font-size: 36px;
+     color: var(--black);
+     padding-bottom: 8px;
+}
+
+ h3 {
+     font-family: Cooper-Hewitt-Heavy;
+     font-size: 34px;
+}
+ h5 {
+     font-family: Cooper-Hewitt-Medium;
+     font-size: 20px;
+}
+ h6 {
+     font-family: Cooper-Hewitt-Thin;
+     font-size: 16px;
+}
+ .accordion-wrap {
+     width: 80%;
+     display: flex;
+     flex-direction: column;
+     margin-bottom: 38px;
+}
+ .accordion-wrap a {
+     color: var(--bg);
+     text-decoration: none;
+}
+ .accordion-wrap a:hover {
+     color: var(--ocean-blue);
+     text-decoration: none;
+}
+ .accordion-wrap .accordion {
+     position: relative;
+     border-top: 1px solid var(--bg);
+
+}
+ .accordion-wrap .accordion:last-child {
+     border-bottom: 1px solid var(--bg);
+}
+ .accordion-wrap .accordion .teaser {
+     display: flex;
+     align-items: flex-start;
+     justify-content: flex-start;
+     width: 100%;
+     padding: 24px 100px 24px 0;
+     position: relative;
+}
+ .accordion-wrap .accordion .teaser:last-child {
+     border-bottom: 1px solid;
+}
+ .accordion-wrap .accordion .teaser .time {
+     margin-top: 5px;
+     width: 200px;
+}
+
+
+ @media (max-width: 990px) {
+     .accordion-wrap .accordion .teaser {
+         flex-direction: column;
+    }
+}
+ .accordion-wrap .accordion .content {
+     padding: 0 120px 30px 200px;
+}
+ @media (max-width: 1200px) {
+     .accordion-wrap .accordion .content {
+         padding: 0 120px 30px 0;
+    }
+}
+ .accordion-wrap .accordion .accordion-toggle {
+     width: 100px;
+     height: 100%;
+     position: absolute;
+     background-color: rgba(255, 255, 255, .14);
+     right: 0;
+     top: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: 0.3s ease;
+}
+ .accordion-wrap .accordion .accordion-toggle span {
+     background-color: var(--bg);
+     transition: 0.3s ease;
+}
+ .accordion-wrap .accordion .accordion-toggle span.one {
+     height: 1px;
+     width: 26px;
+     position: absolute;
+     top: 50%;
+}
+ .accordion-wrap .accordion .accordion-toggle span.two {
+     width: 1px;
+     height: 26px;
+     position: absolute;
+     left: 50%;
+     opacity: 0;
+     transform: rotate(120deg);
+}
+ .accordion-wrap .accordion.collapsed .accordion-toggle span.two {
+     opacity: 1;
+     transform: rotate(0);
+}
+
+#course-btn {
+    border-color: var(--black);
+    color: var(--black);
+}
+
+#course-btn:hover {
+    background-color: var(--ocean-blue)
+}
+ 
+}
+
+
+
